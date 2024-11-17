@@ -12,8 +12,9 @@ Simply use the app to randomise the orde of the playlists if choice, ensure it i
 ## Changes:
 
 * Early version of backend app developed - able to authenticate Spotify account and access playlists
+* Front end created with base styling and content started
 
 ## Current work:
 
-* Update backend app beyond current terminal app style to server script
-* Develop front end
+* Update backend app beyond current terminal app style to server script (in progress)
+* Develop front end (in progress)

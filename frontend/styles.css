@@ -27,6 +27,16 @@
     transform: translateY(0);
   }
 }
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 .animate {
   opacity: 0;
   transition: opacity 2s ease-out;
@@ -57,24 +67,47 @@
 .animate.fade-in-down.active {
   animation: fadeInDown 2s forwards;
 }
+.animate.find-in-right {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 2s ease-out, transform 2s ease-out;
+}
+.animate.find-in-right.active {
+  animation: fadeInUp 2s forwards;
+}
 
 body {
   font-family: sans-serif;
   margin: 0;
+  background-color: #232523;
 }
-body h1, body h2 {
+body p {
+  color: #efefef;
+  font-weight: 200;
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  text-align: center;
+  margin: 80px auto;
+}
+body h1,
+body h2,
+body h3 {
   margin: 0 auto;
   text-align: center;
+}
+body h1 {
+  font-weight: 600;
+  text-shadow: 0 -15px 20px #3b3b3b;
+  font-size: clamp(2rem, 7vw, 4.5rem);
 }
 body h2 {
   font-weight: 100;
   text-shadow: 0 15px 20px #3b3b3b;
   font-size: clamp(1.5rem, 5vw, 3.5rem);
 }
-body h1 {
-  font-weight: 600;
-  text-shadow: 0 -15px 20px #3b3b3b;
-  font-size: clamp(2rem, 7vw, 4.5rem);
+body h3 {
+  font-weight: 100;
+  text-shadow: 0 0 35px #efefef;
+  font-size: clamp(1.4rem, 4vw, 3rem);
 }
 
 .centre-flex {
@@ -100,11 +133,57 @@ body h1 {
 }
 
 #about {
-  height: 100vh;
+  padding-top: 50px;
   font-size: 3.5em;
   background-color: #232523;
-  color: #efefef;
-  text-shadow: 0 0 5px #efefef;
+  color: #afafaf;
+}
+#about div > p {
+  max-width: 80%;
+}
+
+#buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #232523;
+  color: #afafaf;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+#buttons .fetch-btn {
+  background-color: hsl(311, 85%, 25%);
+  border: solid thin transparent;
+  border-radius: 15px;
+  padding: 20px 35px;
+  margin: 20px 30px;
+  color: #afafaf;
+  font-size: 24px;
+  font-weight: 500;
+  transition: border-color 0.8s ease-out, box-shadow 0.8s ease-out;
+  width: 250px;
+}
+#buttons .fetch-btn:hover {
+  border-color: #afafaf;
+  box-shadow: 0 0 20px #afafaf;
+  cursor: pointer;
+}
+#buttons #playlists {
+  display: none;
+}
+
+footer {
+  background-color: #232523;
+  color: #afafaf;
+  padding: 10px auto;
+  padding-left: 5%;
+}
+footer p {
+  margin: 0;
+  padding-bottom: 20px;
+  width: fit-content;
+  text-align: left;
 }
 
 /*# sourceMappingURL=styles.css.map */

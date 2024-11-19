@@ -13,4 +13,18 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     elements.forEach(element => observer.observe(element));
-})
+});
+
+document.getElementById("profile").addEventListener("click", () => {
+    fetch("/profile")
+
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("output").innerHTML = `
+                <p>User ID: ${data.id}</p>
+                <p>Display Name: ${data.display_name}</p>
+                <p>Profile URL: ${data.profile_url}</p>
+            `;
+        })
+        .catch(error => console.error("Error fetching profile:", error));
+});

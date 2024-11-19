@@ -2,6 +2,9 @@
 
 $time: 2s;
 $timeFunction: ease-out;
+$base-bg: #232523;
+$text-color: #afafaf;
+$purple: hsl(311, 85%, 25%);
 
 @keyframes fadeIn {
     from {
@@ -18,6 +21,7 @@ $timeFunction: ease-out;
         opacity: 0;
         transform: translateY(50px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -29,15 +33,28 @@ $timeFunction: ease-out;
         opacity: 0;
         transform: translateY(-50px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 @mixin fade-in($time: $time, $timeFunction: $timeFunction) {
     opacity: 0;
     transition: opacity $time $timeFunction;
+
     &.active {
         animation: fadeIn $time forwards;
     }
@@ -47,6 +64,7 @@ $timeFunction: ease-out;
     opacity: 0;
     transform: translateY(50px);
     transition: opacity $time $timeFunction, transform $time $timeFunction;
+
     &.active {
         animation: fadeInUp $time forwards;
     }
@@ -56,8 +74,19 @@ $timeFunction: ease-out;
     opacity: 0;
     transform: translateY(-50px);
     transition: opacity $time $timeFunction, transform $time $timeFunction;
+
     &.active {
         animation: fadeInDown $time forwards;
+    }
+}
+
+@mixin fade-in-right($time: $time, $timeFunction: $timeFunction) {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity $time $timeFunction, transform $time $timeFunction;
+
+    &.active {
+        animation: fadeInRight $time forwards;
     }
 }
 
@@ -67,21 +96,46 @@ $timeFunction: ease-out;
     &.fade-in {
         @include fade-in();
     }
+
     &.fade-in-up {
         @include fade-in-up();
     }
+
     &.fade-in-down {
         @include fade-in-down();
+    }
+
+    &.find-in-right {
+        @include fade-in-up();
     }
 }
 
 body {
     font-family: sans-serif;
     margin: 0;
+    background-color: $base-bg;
 
-    h1, h2 {
+    p {
+        color: #efefef;
+        font-weight: 200;
+        font-size: clamp(1rem, 1.2vw, 1.25rem);
+        text-align: center;
+        margin: 80px auto;
+    }
+
+    ;
+
+    h1,
+    h2,
+    h3 {
         margin: 0 auto;
         text-align: center;
+    }
+
+    h1 {
+        font-weight: 600;
+        text-shadow: 0 -15px 20px #3b3b3b;
+        font-size: clamp(2rem, 7vw, 4.5rem); // Responsive font-size for h1
     }
 
     h2 {
@@ -90,10 +144,10 @@ body {
         font-size: clamp(1.5rem, 5vw, 3.5rem); // Responsive font-size for h2
     }
 
-    h1 {
-        font-weight: 600;
-        text-shadow: 0 -15px 20px #3b3b3b;
-        font-size: clamp(2rem, 7vw, 4.5rem); // Responsive font-size for h1
+    h3 {
+        font-weight: 100;
+        text-shadow: 0 0 35px #efefef;
+        font-size: clamp(1.4rem, 4vw, 3rem);
     }
 }
 
@@ -108,8 +162,8 @@ body {
 #landing-area {
     height: 100vh;
     font-size: 4.5em;
-    background-color: hsl(311, 85%, 25%);
-    color: #afafaf;
+    background-color: $purple;
+    color: $text-color;
 
     img {
         scale: 50%;
@@ -122,9 +176,62 @@ body {
 }
 
 #about {
-    height: 100vh;
+    padding-top: 50px;
     font-size: 3.5em;
     background-color: #232523;
-    color: #efefef;
-    text-shadow: 0 0 5px #efefef;
+    color: $text-color;
+
+    div>p {
+        max-width: 80%;
+    }
+}
+
+#buttons {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: $base-bg;
+    color: $text-color;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+
+    .fetch-btn {
+        background-color: hsl(311, 85%, 25%);
+        border: solid thin transparent;
+        border-radius: 15px;
+        padding: 20px 35px;
+        margin: 20px 30px;
+        color: $text-color;
+        font-size: 24px;
+        font-weight: 500;
+        transition: border-color 0.8s $timeFunction, box-shadow 0.8s $timeFunction;
+        width: 250px;
+
+        &:hover {
+            border-color: #afafaf;
+            box-shadow: 0 0 20px #afafaf;
+            cursor: pointer;
+        }
+    }
+
+    #playlists {
+        display: none;
+    }
+
+}
+
+footer {
+    background-color: $base-bg;
+    color: $text-color;
+    padding: 10px auto;
+    padding-left: 5%;
+
+    p {
+        margin: 0;
+        padding-bottom: 20px;
+        width: fit-content;
+        text-align: left;
+    }
 }

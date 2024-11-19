@@ -17,17 +17,31 @@
     <section id="about" class="centre-flex">
         <div class="animate fade-in-up">
             <h3>What is this?</h3>
-            <p></p>
-            <p></p>
-            <p></p>
+            <p>A simple app designed to shuffle your Spotify playlists</p>
+            <p>The Spotify shuffle algorithm often puts bias on songs you play often leading to hearing the same songs
+                over and over</p>
+            <p>By using this, you will give your playlists a randomised order, creating a more true shuffe experience
+            </p>
         </div>
         <div class="animate fade-in-up ">
             <h3>How do I use it?</h3>
-            <p></p>
-            <p></p>
-            <p></p>
+            <p>First click the authenticate button below - this will ask you to sign into Spotify and grant permission
+                to access your acount</p>
+            <p>Your playlists will then be displayed below</p>
+            <p>Click the playlist you wish to shuffle, a confirmation will appear when this is done</p>
+            <p>Go to the playlist in Spotify and ensure the sort is set to "Custom", then simply play from the top
+                without shuffle enabled</p>
         </div>
     </section>
+    <section id="buttons" class="animate fade-in-down">
+        <button class="fetch-btn" id="profile">Authenticate</button>
+        <button class="fetch-btn" id="playlists">Get playlists</button>
+    </section>
+    <section id="output"></section>
+    <section id="playlists"></section>
+    <footer>
+        <p class="animate fade-in-right">&copy; Samuel Jack Markham. All rights reserved.</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 

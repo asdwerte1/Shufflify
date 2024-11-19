@@ -173,6 +173,68 @@ body h3 {
   display: none;
 }
 
+#profile-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#profile-info img {
+  scale: 60%;
+  border: solid 2px hsl(311, 85%, 25%);
+  box-shadow: 0 0 20px hsl(311, 85%, 25%);
+  border-radius: 25%;
+}
+#profile-info p {
+  text-align: start;
+  margin: 10px 0;
+}
+
+.loading-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.loading-area #loading {
+  scale: 1.5;
+}
+
+#playlist-area {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 80%;
+  margin: auto;
+}
+
+.playlist-icon {
+  display: flex;
+  flex-direction: column;
+  border: solid 2px hsl(311, 85%, 25%);
+  box-shadow: 0 0 20px hsl(311, 85%, 25%);
+  border-radius: 35px;
+  background-color: #020202;
+  color: #ededed;
+  margin: 20px;
+  padding: 20px 30px;
+  text-align: left;
+  width: 35%;
+  max-width: 200px;
+}
+.playlist-icon h4 {
+  font-size: 1.2rem;
+  margin-top: 5px;
+}
+.playlist-icon p {
+  margin: 0;
+  text-align: left;
+  font-size: 1rem;
+}
+
 footer {
   background-color: #232523;
   color: #afafaf;

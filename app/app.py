@@ -20,7 +20,8 @@ def setup():
         client_secret=secret,
         redirect_uri=redirect_uri,
         scope="user-read-private playlist-read-private playlist-read-collaborative playlist-modify-public playlist-modify-private",
-        cache_path=cache_path
+        cache_path=cache_path,
+        show_dialog=False
     ))
     return sp
 

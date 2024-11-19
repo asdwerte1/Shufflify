@@ -74,10 +74,15 @@ function playlist_icon(info) {
     playlistIcon.id = info.id;
     playlistIcon.classList.add("playlist-icon");
 
+    const shuffleButton = document.createElement("button");
+    shuffleButton.id = `${info.id}-button"`;
+    shuffleButton.innerHTML = "Shuffle"
+
     playlistIcon.innerHTML = `
         <h4>${name}</h4>
         <p>${length} tracks
-        `;
+        <br />`;
+    playlistIcon.appendChild(shuffleButton);
     playlists.appendChild(playlistIcon);
 }
 

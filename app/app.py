@@ -36,10 +36,12 @@ def get_user_profile():
     """Funciton to fetch the users profile information/authenticate profile"""
     
     user_profile = spotify_client.current_user()
+    profile_img_url = user_profile.get("images")[0].get("url") if user_profile.get("images") else None
     response = {
         "id": user_profile['id'],
         "display_name": user_profile['display_name'],
-        "profile_url": user_profile['external_urls']['spotify']
+        "profile_url": user_profile['external_urls']['spotify'],
+        "profile_img": profile_img_url
     }
     
     return jsonify(response)
@@ -65,6 +67,8 @@ def get_playlists():
          "id": p["id"],
          "total_tracks": p["tracks"]["total"]
          } for p in playlists]
+    
+    playlist_info = sorted(playlist_info, key=lambda x: x["name"].lower())
     
     return jsonify(playlist_info)
 

@@ -21,7 +21,7 @@ def setup():
         redirect_uri=redirect_uri,
         scope="user-read-private playlist-read-private playlist-read-collaborative playlist-modify-public playlist-modify-private",
         cache_path=cache_path,
-        show_dialog=False
+        show_dialog=False,
     ))
     return sp
 
@@ -78,7 +78,7 @@ def shuffle_playlist():
     
     """Function to shuffle a playlist based on the ID that arrives"""
     
-    data = request.json
+    data = request.get_json()
     playlist_id = data.get("playlist_id")
     
     if not playlist_id:
@@ -111,7 +111,6 @@ def shuffle_playlist():
         spotify_client.playlist_add_items(playlist_id, track_ids[i: i + chunk_size])
         
     return jsonify({"message": "Playlist shuffled successfully!"})
-                
     
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=False)

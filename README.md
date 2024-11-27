@@ -11,10 +11,9 @@ Simply use the app to randomise the orde of the playlists if choice, ensure it i
 
 ## Changes:
 
-* Early version of backend app developed - able to authenticate Spotify account and access playlists
-* Front end created with base styling and content started
+* Simple version of app working - designed to run as a docker container on local network
 
 ## Current work:
 
-* Update backend app beyond current terminal app style to server script (in progress)
-* Develop front end (in progress)
+* Separate front and back end - update front end to React
+* Improve UX - aiming to reduce the number of new tab opens - this can happen quite a lot for large playlists as songs are done in blocks of 50

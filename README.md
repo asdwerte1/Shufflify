@@ -17,3 +17,4 @@ Simply use the app to randomise the orde of the playlists if choice, ensure it i
 
 * Separate front and back end - update front end to React
 * Improve UX - aiming to reduce the number of new tab opens - this can happen quite a lot for large playlists as songs are done in blocks of 50
+* Bug Fix - app does not funciton when deployed as Docker container but does when deployed directly - attempting to fix this however when updating to React also likely to change backend logic to node, this may remove issue (time will tell)

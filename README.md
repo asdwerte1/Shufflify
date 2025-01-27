@@ -2,7 +2,7 @@
 An app to shuffle a given playlist into a random order - designed to combat the limited shuffle algorithm that Spotify has.
 
 <p align="center">
-  <img src="frontend/media/Logo - Shufflify.jpg" alt="Logo" width="50%" />
+  <img src="frontend/media/Logo - Shufflify.jpg" alt="Logo" width="25%" style="border: solid thin transparent; border-radius: 20px;" />
 </p>
 
 Ever noticed that the spotify shuffle algorithm always play the same songs over and over? Even on that huge playlist of yours? This is because the shuffle adds weight to songs you play more...which leads to hearing the same songs more.

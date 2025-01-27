@@ -1,6 +1,10 @@
 # PlayList-Shuffler
 An app to shuffle a given playlist into a random order - designed to combat the limited shuffle algorithm that Spotify has.
 
+<div style="text-align: center;">
+  <img src="frontend/media/Logo - Shufflify.jpg" alt="Logo" width="50%" />
+</div>
+
 Ever noticed that the spotify shuffle algorithm always play the same songs over and over? Even on that huge playlist of yours? This is because the shuffle adds weight to songs you play more...which leads to hearing the same songs more.
 
 Instead, the aim of this app will be to truely randomise the order of your playlists.

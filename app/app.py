@@ -5,6 +5,7 @@ from random import shuffle
 from dotenv import load_dotenv
 from os import getenv
 from os.path import join, dirname
+import os
 import time
 
 app = Flask(__name__, static_folder="../frontend", static_url_path="/")
@@ -15,7 +16,10 @@ def setup_auth_manager():
     cid = getenv("CLIENT_ID")
     secret = getenv("CLIENT_SECRET")
     redirect_uri = getenv("REDIRECT_URI")
-    cache_path = join(dirname(__file__), "cache", ".cache")
+    # Ensure the cache directory exists
+    cache_dir = join(dirname(__file__), "cache")
+    os.makedirs(cache_dir, exist_ok=True)
+    cache_path = join(cache_dir, ".cache")
     print(f"Client ID: {cid}, Redirect URI: {redirect_uri}, Cache Path: {cache_path}")
 
     auth_manager = SpotifyOAuth(
@@ -49,7 +53,7 @@ def callback():
     try:
         code = request.args.get("code")
         print(f"Authorization code received: {code}")
-        token_info = auth_manager.get_access_token(code)
+        token_info = auth_manager.get_access_token(code, as_dict=True)
         print(f"Token info retrieved: {token_info}")
         if not token_info:
             print("Failed to retrieve access token.")
